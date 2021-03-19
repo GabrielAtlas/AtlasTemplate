@@ -1,0 +1,8 @@
+#Tipos: MYSQL_HIKARI, MYSQL, SQLLITE
+Database:
+ Tipo: "SQLLITE"
+ IP: "localhost:3306"
+ DB: "test"
+ User: "root"
+ Pass: ""
+ Debug: false

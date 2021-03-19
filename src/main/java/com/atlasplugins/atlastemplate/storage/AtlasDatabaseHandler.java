@@ -1,5 +1,6 @@
 package com.atlasplugins.atlastemplate.storage;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -22,6 +23,7 @@ public class AtlasDatabaseHandler {
 	private Map<DataTable, DataTableHandler> handlers;
 
 	public AtlasDatabaseHandler(FileConfiguration config) {
+		this.handlers = new HashMap<DataTable, DataTableHandler>();
 		if(DatabaseConnectionType.isValid(config.getString("Database.Tipo"))) {
 			DatabaseConnectionType dataType = DatabaseConnectionType.valueOf(config.getString("Database.Tipo"));
 			this.dataSource = dataType.getDataSource(config.getString("Database.IP"), config.getString("Database.DB"), config.getString("Database.User"), config.getString("Database.Pass"));

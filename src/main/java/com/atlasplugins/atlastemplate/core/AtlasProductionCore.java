@@ -49,7 +49,7 @@ public abstract class AtlasProductionCore extends AtlasPlugin{
 			this.useConfig = true;
 		}
 		if(!getConfig().isSet("Database")) {
-			getConfig().set("Database.Tipo", "SQLITE");
+			getConfig().set("Database.Tipo", "SQLLITE");
 			getConfig().set("Database.IP", "localhost:3306");
 			getConfig().set("Database.DB", "test");
 			getConfig().set("Database.User", "root");

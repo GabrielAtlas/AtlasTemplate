@@ -42,21 +42,12 @@ public abstract class AtlasDevelopmentCore extends JavaPlugin{
 	private void setupDatabase() {
 		this.databaseHandler = new AtlasDatabaseHandler(getConfig());
 	}
-
+	
 	public void setupDatabaseConnection() {
 		this.useDatabase = true;
 		if(!useConfig) {
 			setupConfig();
 			this.useConfig = true;
-		}
-		if(!getConfig().isSet("Database")) {
-			getConfig().set("Database.Tipo", "SQLITE");
-			getConfig().set("Database.IP", "localhost:3306");
-			getConfig().set("Database.DB", "test");
-			getConfig().set("Database.User", "root");
-			getConfig().set("Database.Pass", "");
-			getConfig().set("Database.Debug", true);
-			saveConfig();
 		}
 	}
 	
