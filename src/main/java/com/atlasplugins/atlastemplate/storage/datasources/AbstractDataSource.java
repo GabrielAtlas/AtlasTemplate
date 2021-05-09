@@ -1,12 +1,12 @@
 package com.atlasplugins.atlastemplate.storage.datasources;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 
-import com.atlasplugins.atlastemplate.AtlasTemplate;
 import com.atlasplugins.atlastemplate.storage.adapters.ItemStackAdapter;
 import com.atlasplugins.atlastemplate.storage.adapters.LocationAdapter;
 import com.atlasplugins.atlastemplate.storage.exceptions.DatabaseException;
@@ -17,14 +17,16 @@ import com.google.gson.GsonBuilder;
 
 public abstract class AbstractDataSource {
 
+	protected ExecutorService executor;
 	protected Gson gson;
 
 	public AbstractDataSource() throws DatabaseException {
+		this.executor = Executors.newFixedThreadPool(3);
 		this.gson = buildGson();
 	}
 
-	public void async(Runnable runnable) {
-		Bukkit.getScheduler().runTaskAsynchronously(AtlasTemplate.getInstance(), runnable);
+	protected void async(Runnable runnable) {
+		executor.submit(runnable);
 	}
 
 	private Gson buildGson() {

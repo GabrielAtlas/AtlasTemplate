@@ -4,7 +4,7 @@ import com.atlasplugins.atlastemplate.core.AtlasDevelopmentCore;
 
 import lombok.Getter;
 
-public class AtlasTemplate extends AtlasDevelopmentCore{
+public class AtlasTemplate extends AtlasDevelopmentCore {
 	
 	private static @Getter AtlasTemplate instance;
 	

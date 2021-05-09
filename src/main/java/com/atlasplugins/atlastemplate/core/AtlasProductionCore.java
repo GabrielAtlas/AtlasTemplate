@@ -4,14 +4,19 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 import com.atlasplugins.atlastemplate.apis.Configs;
+import com.atlasplugins.atlastemplate.handlers.DependencyHandler;
 import com.atlasplugins.atlastemplate.storage.AtlasDatabaseHandler;
 import com.dont.licensesystem.plugin.AtlasPlugin;
 import com.google.common.io.Resources;
 
-public abstract class AtlasProductionCore extends AtlasPlugin{
+import lombok.Getter;
 
-	private static AtlasProductionCore plugin;
+@Getter
+public abstract class AtlasProductionCore extends AtlasPlugin {
+
+	private static @Getter AtlasProductionCore plugin;
 	private AtlasDatabaseHandler databaseHandler;
+	private DependencyHandler dependencyHandler;
 	private boolean useDatabase, useConfig, useMultipleConfigs;
 
 	public AtlasProductionCore(boolean useConfig, boolean useMultipleConfigs) {
@@ -29,6 +34,7 @@ public abstract class AtlasProductionCore extends AtlasPlugin{
 		if(useConfig) setupConfig();
 		if(useMultipleConfigs) Configs.setup();
 		if(useDatabase) setupDatabase();
+		this.dependencyHandler = new DependencyHandler(this);
 
 		this.enable();
 	}
@@ -58,10 +64,6 @@ public abstract class AtlasProductionCore extends AtlasPlugin{
 			saveConfig();
 		}
 	}
-	
-	public AtlasDatabaseHandler getDatabaseHandler() {
-		return databaseHandler;
-	}
 
 	public void setupConfig() {
 		saveDefaultConfig();
@@ -75,12 +77,8 @@ public abstract class AtlasProductionCore extends AtlasPlugin{
 		(plugin = this).saveDefaultConfig();
 	}
 
-	public static AtlasProductionCore getInstance() {
-		return plugin;
-	}
-
 	public abstract void load();
 	public abstract void enable();
 	public abstract void disable();
-	
+
 }

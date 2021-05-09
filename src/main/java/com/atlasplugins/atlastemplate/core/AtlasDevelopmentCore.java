@@ -6,13 +6,18 @@ import java.nio.charset.StandardCharsets;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.atlasplugins.atlastemplate.apis.Configs;
+import com.atlasplugins.atlastemplate.handlers.DependencyHandler;
 import com.atlasplugins.atlastemplate.storage.AtlasDatabaseHandler;
 import com.google.common.io.Resources;
 
-public abstract class AtlasDevelopmentCore extends JavaPlugin{
+import lombok.Getter;
 
-	private static JavaPlugin plugin;
+@Getter
+public abstract class AtlasDevelopmentCore extends JavaPlugin {
+
+	private static @Getter JavaPlugin plugin;
 	private AtlasDatabaseHandler databaseHandler;
+	private DependencyHandler dependencyHandler;
 	private boolean useDatabase, useConfig, useMultipleConfigs;
 
 	public AtlasDevelopmentCore(boolean useConfig, boolean useMultipleConfigs) {
@@ -30,6 +35,7 @@ public abstract class AtlasDevelopmentCore extends JavaPlugin{
 		if(useConfig) setupConfig();
 		if(useMultipleConfigs) Configs.setup();
 		if(useDatabase) setupDatabase();
+		this.dependencyHandler = new DependencyHandler(this);
 
 		this.enable();
 	}
@@ -42,17 +48,13 @@ public abstract class AtlasDevelopmentCore extends JavaPlugin{
 	private void setupDatabase() {
 		this.databaseHandler = new AtlasDatabaseHandler(getConfig());
 	}
-	
+
 	public void setupDatabaseConnection() {
 		this.useDatabase = true;
 		if(!useConfig) {
 			setupConfig();
 			this.useConfig = true;
 		}
-	}
-	
-	public AtlasDatabaseHandler getDatabaseHandler() {
-		return databaseHandler;
 	}
 
 	public void setupConfig() {
@@ -65,10 +67,6 @@ public abstract class AtlasDevelopmentCore extends JavaPlugin{
 			e.printStackTrace();
 		}
 		(plugin = this).saveDefaultConfig();
-	}
-
-	public static JavaPlugin getInstance() {
-		return plugin;
 	}
 
 	public abstract void load();

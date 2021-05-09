@@ -49,6 +49,67 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>LuckPerms</groupId>
+			<artifactId>LuckPerms</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>E:/dependencies/LuckPerms-Bukkit-5.0.72.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>AtlasEconomiaSecundaria</groupId>
+			<artifactId>AtlasEconomiaSecundaria</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>E:/dependencies/AtlasEconomiaSecundaria-API.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>MineShop</groupId>
+			<artifactId>MineShop</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>E:/dependencies/MineShopCash.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>PlaceHolderAPI</groupId>
+			<artifactId>PlaceHolderAPI</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>E:/dependencies/PlaceholderAPI-2.9.2.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>PlayerPoints</groupId>
+			<artifactId>PlayerPoints</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>E:/dependencies/PlayerPoints.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>TintaCoin</groupId>
+			<artifactId>TintaCoin</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>C:/dependencies/TintaCoin.jar</systemPath>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>PombaDiamonds</groupId>
+			<artifactId>PombaDiamonds</artifactId>
+			<version>1.8.8-R0.1</version>
+			<scope>system</scope>
+			<systemPath>C:/dependencies/PombaDiamonds.jar</systemPath>
+		</dependency>
+
+		<dependency>
 			<groupId>net.citizensnpcs</groupId>
 			<artifactId>citizensapi</artifactId>
 			<version>2.0.18-SNAPSHOT</version>
@@ -95,59 +156,41 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Inicio de uma dependencia -->
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
 			<version>1.8.8-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Fim de uma dependencia -->
 
-		<!-- Inicio de uma dependencia -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP-java9ea</artifactId>
 			<version>2.6.1</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- Fim de uma dependencia -->
 
-		<!-- Inicio de uma dependencia -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.26</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- Fim de uma dependencia -->
 
-		<!-- Inicio de uma dependencia -->
 		<dependency>
 			<groupId>com.github.MilkBowl</groupId>
 			<artifactId>VaultAPI</artifactId>
 			<version>1.7</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Fim de uma dependencia -->
 
-		<!-- Inicio de uma dependencia -->
 		<dependency>
 			<groupId>com.mojang</groupId>
 			<artifactId>authlib</artifactId>
 			<version>1.5.21</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Fim de uma dependencia -->
 
-		<!-- Inicio de uma dependencia -->
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver-sync</artifactId>
-			<version>3.11.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Fim de uma dependencia -->
 	</dependencies>
 	<build>
 		<plugins>
